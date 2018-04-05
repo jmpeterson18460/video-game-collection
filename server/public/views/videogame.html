@@ -1,0 +1,29 @@
+<div class="games">
+    <h2>Add a video game</h2>
+
+    <form ng-submit="vm.addVideoGame(vm.videogame)">
+        <input type="text" placeholder="name" ng-model="vm.videogame.name">
+        <input type="text" placeholder="release date(Y-M-D)" ng-model="vm.videogame.release_date">
+        <input type="text" placeholder="rating" ng-model="vm.videogame.rating">
+        <input type="text" placeholder="url for pic" ng-model="vm.videogame.pic">
+        <select ng-model="vm.videogame.system_id">
+            <option value="">---Please Select---</option>
+            <!-- <option value="1" >Xbox</option>
+            <option value="2" >PlayStation</option>
+            <option value="3" >Nintendo 64</option> -->
+            <option ng-repeat="system in vm.system.list" value="{{system.id}}" >{{system.name}}</option>
+        </select>
+        <input type="submit">
+    </form>
+
+    <div ng-repeat="game in vm.videogames.list">
+        {{game.name}}
+        {{game.release_date}}
+        {{game.rating}}
+        <img class="pic" ng-src="{{game.pic}}">
+        {{game.system_id}}
+        <md-button class="md-warn md-raised" ng-click="vm.delVideogame(game)">Delete</md-button>
+
+    </div>
+
+</div>
