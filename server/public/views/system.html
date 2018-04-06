@@ -1,0 +1,15 @@
+<div>
+    <h2>Add a system</h2>
+    <input type="text" placeholder="system" ng-model="vm.system.name">
+    <md-button class="md-raised md-primary" ng-click="vm.addSystem(vm.system)">Submit</md-button>
+</div>
+
+<div>
+    <select ng-model="vm.videogame.system_id">
+        <option value="">---Please Select---</option>
+        <!-- <option value="1" >Xbox</option>
+        <option value="2" >PlayStation</option>
+        <option value="3" >Nintendo 64</option> -->
+        <option ng-repeat="system in vm.system.list" value="{{system.id}}" >{{system.names}}</option>
+    </select>
+</div>

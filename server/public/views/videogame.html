@@ -11,14 +11,14 @@
             <!-- <option value="1" >Xbox</option>
             <option value="2" >PlayStation</option>
             <option value="3" >Nintendo 64</option> -->
-            <option ng-repeat="system in vm.system.list" value="{{system.id}}" >{{system.name}}</option>
+            <option ng-repeat="system in vm.system.list" value="{{system.id}}" >{{system.names}}</option>
         </select>
         <input type="submit">
     </form>
 
     <div ng-repeat="game in vm.videogames.list">
         {{game.name}}
-        {{game.release_date}}
+        {{game.release_date | date: 'MMMM d, yyyy'}}
         {{game.rating}}
         <img class="pic" ng-src="{{game.pic}}">
         {{game.names}}

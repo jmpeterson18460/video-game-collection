@@ -4,6 +4,7 @@ videoGameApp.service('VideoGameService', ['$http', function($http){
 
     self.videogames = { list : [] };
     self.systems = { list : [] };
+    self.specificSystem = { list: [] };
 
     self.getVideoGames = function(){
         console.log('Getting video games!');
@@ -32,6 +33,17 @@ videoGameApp.service('VideoGameService', ['$http', function($http){
             
         })
 
+    }
+
+    self.addSystems = function(system){
+        console.log('Adding system!', system);
+        $http.post('/system', system).then((response) => {
+            console.log('Successfully posted system!');
+            self.getSpecificSystem(system);
+            
+        }).catch((error) => {
+            console.log('Error in posting system: ', error);
+        })
     }
 
     self.delVideoGame = function(videogame){
