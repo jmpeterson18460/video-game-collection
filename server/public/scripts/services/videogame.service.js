@@ -63,7 +63,7 @@ videoGameApp.service('VideoGameService', ['$http',function($http, $route){
         console.log('Adding system!', system);
         $http.post('/system', system).then((response) => {
             console.log('Successfully posted system!');
-            self.reloadRoute();
+            self.getSystems();
             
         }).catch((error) => {
             console.log('Error in posting system: ', error);
@@ -90,7 +90,7 @@ videoGameApp.service('VideoGameService', ['$http',function($http, $route){
         }else {
             $http.delete('/system/' + system.id).then(function(response){
                 console.log('Successfully deleted system!');
-                alert("Success! Please reload the page.")
+                self.getSystems();
                 
             }).catch((error) => {
                 console.log('Error in deleting system: ', error);

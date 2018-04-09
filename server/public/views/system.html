@@ -22,14 +22,14 @@
 </div>
 
 <div>
-    <table>
+    <table id="table">
         <thead>
             <tr><th>System</th><th>Games in Library</th><th>Delete</th></tr>
         </thead>
         <tbody>
             <tr ng-repeat="system in vm.oneSystem.list">
-                <th>{{system.names}}</th>
-                <th>{{system.count}}</th>
+                <th class="swag">{{system.names}}</th>
+                <th class="swag">{{system.count}}</th>
                 <th><md-button class="md-raised md-warn" ng-click="vm.delSystem(system)">Delete</md-button></th>
 
             </tr>
