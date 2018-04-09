@@ -1,7 +1,8 @@
 let videoGameApp = angular.module('VideoGameApp', ['ngRoute', 'ngMaterial']);
 
-videoGameApp.config(function($routeProvider){
+videoGameApp.config(function($routeProvider, $mdThemingProvider){
     console.log('Route config loaded');
+    $mdThemingProvider.theme('dark-grey').backgroundPalette('grey').dark();
 
     $routeProvider
         .when('/videogame', {
@@ -12,6 +13,6 @@ videoGameApp.config(function($routeProvider){
             templateUrl: 'views/system.html',
             controller: 'SystemController as vm'
         })
-        .otherwise( {redirectTo: '/ships'} );
+        // .otherwise( {redirectTo: '/ships'} );
     
 })

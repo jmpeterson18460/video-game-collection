@@ -2,8 +2,10 @@ videoGameApp.controller('SystemController', ['VideoGameService', function(VideoG
     console.log('SystemController loaded');
     const self = this;
 
-    self.addSystem = VideoGameService.addSystems
     self.system = VideoGameService.systems
-    self.getSystem = VideoGameService.getSystems
+    self.oneSystem = VideoGameService.oneSystem
+    self.addSystem = VideoGameService.addSystems
+    self.getSystem = VideoGameService.getOneSystem
+    self.delSystem = VideoGameService.delSystem
 
 }])

@@ -1,4 +1,20 @@
 .pic{
-    height: 200px;
-    width: 200px;
+    height: 250px;
+    width: 250px;
 }
+
+#center{
+    text-align: center;
+    font-family: 'Raleway', Helvetica, Arial, sans-serif;
+    font-size: 23px;
+}
+
+#under{
+    text-decoration-line: underline;
+}
+
+body{
+    background-image: url(http://www.zastavki.com/pictures/1600x1200/2008/3D-graphics_Mario_mushrooms_006968_.jpg)
+}
+
+/* https://img00.deviantart.net/4042/i/2013/334/e/8/falcon_gaming_youtube_channel_background_v1_by_zach98falcon-d6w7gm5.png */

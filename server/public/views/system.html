@@ -1,15 +1,38 @@
 <div>
     <h2>Add a system</h2>
-    <input type="text" placeholder="system" ng-model="vm.system.name">
+
+    <md-input-container>
+        <label>System</label>
+        <input type="text" ng-model="vm.system.name">
+    </md-input-container>
+
+    <!-- <input type="text" placeholder="system" ng-model="vm.system.name"> -->
     <md-button class="md-raised md-primary" ng-click="vm.addSystem(vm.system)">Submit</md-button>
 </div>
 
 <div>
-    <select ng-model="vm.videogame.system_id">
+    <select ng-change="vm.getSystem(vm.videogame)" ng-model="vm.videogame.system_id">
         <option value="">---Please Select---</option>
         <!-- <option value="1" >Xbox</option>
         <option value="2" >PlayStation</option>
         <option value="3" >Nintendo 64</option> -->
-        <option ng-repeat="system in vm.system.list" value="{{system.id}}" >{{system.names}}</option>
+        <option ng-repeat="system in vm.system.list" ng-value="{{system.id}}" >{{system.names}}</option>
     </select>
+
+</div>
+
+<div>
+    <table>
+        <thead>
+            <tr><th>System</th><th>Games in Library</th><th>Delete</th></tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="system in vm.oneSystem.list">
+                <th>{{system.names}}</th>
+                <th>{{system.count}}</th>
+                <th><md-button class="md-raised md-warn" ng-click="vm.delSystem(system)">Delete</md-button></th>
+
+            </tr>
+        </tbody>
+    </table>
 </div>

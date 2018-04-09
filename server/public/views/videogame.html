@@ -1,29 +1,59 @@
-<div class="games">
+<div>
     <h2>Add a video game</h2>
 
     <form ng-submit="vm.addVideoGame(vm.videogame)">
-        <input type="text" placeholder="name" ng-model="vm.videogame.name">
+        <md-input-container>
+            <label>Name</label>
+            <input type="text" ng-model="vm.videogame.name">
+        </md-input-container>
+
+        <md-input-container>
+            <label>Release Date</label>
+            <md-datepicker ng-model="vm.videogame.release_date"></md-datepicker>
+        </md-input-container>
+        
+        <md-input-container>
+            <label>Rating</label>
+            <input type="text" ng-model="vm.videogame.rating">
+        </md-input-container>
+
+
+        <md-input-container>
+            <label>picture url</label>
+            <input type="text" ng-model="vm.videogame.pic">
+        </md-input-container>
+
+        <!-- <input type="text" placeholder="name" ng-model="vm.videogame.name">
         <input type="text" placeholder="release date(Y-M-D)" ng-model="vm.videogame.release_date">
         <input type="text" placeholder="rating" ng-model="vm.videogame.rating">
-        <input type="text" placeholder="url for pic" ng-model="vm.videogame.pic">
+        <input type="text" placeholder="url for pic" ng-model="vm.videogame.pic"> -->
         <select ng-model="vm.videogame.system_id">
             <option value="">---Please Select---</option>
-            <!-- <option value="1" >Xbox</option>
-            <option value="2" >PlayStation</option>
-            <option value="3" >Nintendo 64</option> -->
             <option ng-repeat="system in vm.system.list" value="{{system.id}}" >{{system.names}}</option>
         </select>
         <input type="submit">
     </form>
 
-    <div ng-repeat="game in vm.videogames.list">
-        {{game.name}}
-        {{game.release_date | date: 'MMMM d, yyyy'}}
-        {{game.rating}}
-        <img class="pic" ng-src="{{game.pic}}">
-        {{game.names}}
-        <md-button class="md-warn md-raised" ng-click="vm.delVideogame(game)">Delete</md-button>
+    <div class="games" layout="row" layout-wrap>
+
+        <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch flex="20" ng-repeat="game in vm.videogames.list" >
+            <md-card-title>
+                <md-card-title-text id="center">
+                    {{game.name}}
+                    <p><img class="pic" ng-src="{{game.pic}}"></p>
+                    <span id="under">Release Date</span>{{game.release_date | date: 'MMMM d, yyyy'}}
+                    <span>Rated: {{game.rating}}</span>
+
+                </md-card-title-text>
+            </md-card-title>
+            {{game.names}}
+            <md-card-actions layout="row" layout-align="end center">
+                <md-button class="md-warn md-raised md-cornered" ng-click="vm.delVideogame(game)">Delete</md-button>    
+
+            </md-card-actions>
+            
+            
+        </md-card>
 
     </div>
-
 </div>

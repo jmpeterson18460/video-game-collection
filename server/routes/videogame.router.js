@@ -4,8 +4,7 @@ const pool = require('../modules/pool');
 
 router.get('/', (req, res) => {
     console.log('Getting videogames');
-    let queryText = `SELECT * FROM "video_games" JOIN "systems" 
-                    ON "video_games"."system_id" = "systems"."id"`;
+    let queryText = `SELECT * FROM "video_games";`
     pool.query(queryText).then((result) => {
         console.log('GET results: ', result.rows);
         
